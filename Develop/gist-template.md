@@ -175,8 +175,46 @@ return (string.matches("like dogs") || string.matches("like penguins"))
 
 ### Flags
 
+A flag is an optional parameter to a regex that modifies its behavior of searching.
+
+A flag is denoted using a single lowercase alphabetic character.
+
+In JavaScript regex, we have a total of 6 flags, each serving a different purpose.
+
+Flag Name Modification
+i Ignore Casing Makes the expression search case-insensitively.
+g Global Makes the expression search for all occurrences.
+s Dot All Makes the wild character . match newlines as well.
+m Multiline Makes the boundary characters ^ and \$ match the beginning and ending of every single line instead of the beginning and ending of the whole string.
+y Sticky Makes the expression start its searching from the index indicated in its lastIndex property.
+u Unicode Makes the expression assume individual characters as code points, not code units, and thus match 32-bit characters as well.
+
+But how to add these flags to a regex?
+
+Very simple...
+
+For an expression created literally, i.e. using the forward slashes //, flags comes after the second slash. In general notation we can expression this as follows:
+
+/pattern/flags
+Similarly, for an expression created using RegExp(), flags go as a string in the second argument, as shown below:
+
+new RegExp('pattern', 'flags')
+For example, if we were to give the flag i to the regex /a/, we'd write /a/i. And similarly in the case of new RegExp('a'), we'd write new RegExp('a', 'i')
+
+To give multiple flags to a regex, we write them one after another (without any spaces or other delimiters).
+
+For example, if we were to give both the flags i and g to the regex /a/, we'd write /a/ig (or equivalently /a/gi, since the order doesn't matter).
+
 ### Character Escapes
+
+The \ is known as the escape code, which restore the original literal meaning of the following character.
+Similarly, \* , + , ? (occurrence indicators), ^ , \$ (position anchors) have special meaning in regex.
+You need to use an escape code to match with these characters.
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Author Elena Valeeva.
+
+https://elenavaleeva.github.io/Regex-Tutorial/
+
+https://github.com/elenavaleeva/Regex-Tutorial
